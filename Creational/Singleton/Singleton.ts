@@ -1,9 +1,11 @@
 'use strict';
 
+// Singleton example realisation with operator new
+// which returns the same instance
 class Singleton {
   private static instance: Singleton;
-  private name: string;
-  private age: number;
+  public name: string | null = null;
+  public age: number | null = null;
 
   public constructor(name: string, age: number) {
     if (!Singleton.instance) {
@@ -15,7 +17,7 @@ class Singleton {
   }
 }
 
-const a = new Singleton('Yehor', 12);
-const b = new Singleton('Ihor', 14);
+const SingleObject1: Singleton = new Singleton('Yehor', 12);
+const SingleObject2: Singleton = new Singleton('Ihor', 32);
 
-console.log(a === b);
+if (SingleObject1.name === SingleObject2.name) console.log('They are equil');
